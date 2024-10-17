@@ -1,24 +1,14 @@
 import { useState } from 'react';
-import { Image, StyleSheet, Platform, View, Text, Pressable } from 'react-native';
+import { StyleSheet, View, Text, Pressable, Button } from 'react-native';
+import TicTacToe from '../components/TicTacToe';
 
 export default function HomeScreen() {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  // const [state, setState] = useState()
+  
+
   return (
     <View style={styles.container}>
-      <Text>Tik Tac Toe</Text>
-      <View style={styles.cellContainer}>
-        {board.map((cell, index) => 
-          <Pressable 
-            key={index}
-            onPress={() => console.log(index)}
-          >
-            <View style={styles.cellItem}>
-              <Text>{cell}</Text>
-            </View>
-          </Pressable>
-        )}
-      </View>
+      <Text>Tik Tac Toe</Text>      
+      <TicTacToe />
     </View>
   );
 }
@@ -26,11 +16,13 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     width: 360,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     margin: 80,
   },
   cellContainer: {
-
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   },
   cellItem: {
     width: 120,
@@ -38,5 +30,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderStyle: 'solid',
     borderColor: '#000',
+  },
+  text: {
+    fontSize: 36,
   }
 });
